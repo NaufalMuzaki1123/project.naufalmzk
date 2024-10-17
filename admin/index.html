@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SB Admin 2 - Dashboard</title>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <style>
+        .modal { display: none; }
+        .modal.show { display: block; }
+    </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Dasboard <sup>Admin</sup></div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </nav>
+
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Jumlah Postingan</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="postCount">0</span></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Jumlah Pengunjung</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="visitorCount">0</span></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Jumlah Komentar</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><span id="commentCount">0</span></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Table</h1>
+                        <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="addPostBtn"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Postingan</button>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Judul</th>
+                                            <th>Konten</th>
+                                            <th>Tanggal</th>
+                                            <th>Edit</th>
+                                            <th>Komentar</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Judul</th>
+                                            <th>Konten</th>
+                                            <th>Tanggal</th>
+                                            <th>Edit</th>
+                                            <th>Komentar</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody id="postList"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal untuk menambah dan mengedit postingan -->
+                    <div id="postModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2 id="modalTitle">Tambah Postingan</h2>
+                            <form id="postForm">
+                                <label for="postTitle">Judul:</label><br>
+                                <input type="text" id="postTitle" required><br>
+                                <label for="postContent">Konten:</label><br>
+                                <textarea id="postContent" required></textarea><br>
+                                <button type="submit">Simpan</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Button to simulate visitor -->
+                    <div class="d-flex justify-content-end mt-4">
+                        <button id="simulateVisitorBtn" class="btn btn-success">Simulate Visitor</button>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script>
+        let posts = [];
+        let visitors = 0;
+        let currentEditId = null;
+
+        // Update statistics display
+        function updateStats() {
+            document.getElementById('postCount').innerText = posts.length;
+            document.getElementById('commentCount').innerText = posts.reduce((sum, post) => sum + post.comments.length, 0);
+            document.getElementById('visitorCount').innerText = visitors;
+        }
+
+        // Display posts in table
+        function displayPosts() {
+            const postList = document.getElementById('postList');
+            postList.innerHTML = ''; // Clear the current list
+
+            posts.forEach((post, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = 
+                    `<td>${index + 1}</td>
+                    <td>${post.title}</td>
+                    <td>${post.content}</td>
+                    <td>${post.date}</td>
+                    <td><button onclick="openEditModal(${post.id})">Edit</button></td>
+                    <td>
+                        <button onclick="openCommentModal(${post.id})">Komentar</button>
+                        <div id="comments-${post.id}">${displayComments(post.comments)}</div>
+                    </td>`;
+                postList.appendChild(row);
+            });
+        }
+
+        // Display comments
+        function displayComments(comments) {
+            return comments.map(comment => `<div>${comment}</div>`).join('');
+        }
+
+        // Open modal for adding or editing post
+        function openPostModal() {
+            document.getElementById('postModal').classList.add('show');
+            document.getElementById('modalTitle').innerText = 'Tambah Postingan';
+            document.getElementById('postTitle').value = '';
+            document.getElementById('postContent').value = '';
+            currentEditId = null;
+        }
+
+        // Open modal for editing post
+        function openEditModal(id) {
+            const post = posts.find(p => p.id === id);
+            if (post) {
+                document.getElementById('postModal').classList.add('show');
+                document.getElementById('modalTitle').innerText = 'Edit Postingan';
+                document.getElementById('postTitle').value = post.title;
+                document.getElementById('postContent').value = post.content;
+                currentEditId = post.id;
+            }
+        }
+
+        // Close modal
+        function closePostModal() {
+            document.getElementById('postModal').classList.remove('show');
+        }
+
+        // Save post
+        document.getElementById('postForm').onsubmit = function (e) {
+            e.preventDefault();
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            const date = new Date().toLocaleDateString();
+
+            if (currentEditId !== null) {
+                // Update existing post
+                const index = posts.findIndex(p => p.id === currentEditId);
+                if (index !== -1) {
+                    posts[index] = { id: currentEditId, title, content, date, comments: posts[index].comments };
+                }
+            } else {
+                // Add new post
+                const newPost = { id: Date.now(), title, content, date, comments: [] };
+                posts.push(newPost);
+            }
+
+            displayPosts();
+            updateStats();
+            closePostModal();
+        }
+
+        // Open comment modal
+        function openCommentModal(postId) {
+            const comment = prompt("Masukkan komentar:");
+            if (comment) {
+                const post = posts.find(p => p.id === postId);
+                if (post) {
+                    post.comments.push(comment);
+                }
+                displayPosts();
+                updateStats();
+            }
+        }
+
+        // Simulate visitor button click event
+        document.getElementById('simulateVisitorBtn').onclick = function () {
+            visitors++;
+            updateStats();
+        };
+
+        // Event listeners
+        document.getElementById('addPostBtn').onclick = openPostModal;
+        document.querySelector('.close').onclick = closePostModal;
+
+        // Initialize stats and post list
+        updateStats();
+        displayPosts();
+    </script>
+</body>
+
+</html>
