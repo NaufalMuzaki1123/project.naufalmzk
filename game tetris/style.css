@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222; /* Warna latar belakang */
+}
+
+#TetrisDIV {
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 320px;
+  height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game {
+  background: url('pl.jpg') no-repeat center center;
+  background-size: cover;
+  width: 100%; /* Pastikan ukurannya mengikuti container */
+  height: 100%;
+}
+
+#AllLinesOut, #nextFigureDIV {
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+#restartButton{
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+button{
+  background-color: gray;
+}
